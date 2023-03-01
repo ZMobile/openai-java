@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.theokanning.openai.completion.ChatCompletionRequest;
+import com.theokanning.openai.completion.ChatCompletionResult;
 import com.theokanning.openai.completion.CompletionRequest;
 import com.theokanning.openai.completion.CompletionResult;
 import com.theokanning.openai.edit.EditRequest;
@@ -118,6 +120,10 @@ public class OpenAiService {
 
     public CompletionResult createCompletion(CompletionRequest request) {
         return api.createCompletion(request).blockingGet();
+    }
+
+    public ChatCompletionResult createChatCompletion(ChatCompletionRequest request) {
+        return api.createChatCompletion(request).blockingGet();
     }
 
     /**
